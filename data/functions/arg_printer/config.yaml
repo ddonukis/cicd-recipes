@@ -1,0 +1,5 @@
+name: arg_printer
+description: Print out received arguments
+runtime: py311
+metadata:
+  version: "1.0.0"

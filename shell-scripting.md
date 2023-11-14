@@ -14,6 +14,31 @@ find path  # find directories/files by type name pattern etc (and optionally run
 ```
 
 ## Text file processing
+### `wc`
+Count words, lines, characters.
+```bash
+# count lines
+wc -l data/text/rand.txt
+wc -l < data/text/rand.txt
+cat data/text/rand.txt | wc -l
+# count charcters
+wc -c < data/text/rand.txt
+# count words
+wc -w < data/text/rand.txt
+```
+
+### `head`, `tail`
+Print the first N lines or last N lines of a file.
+```bash
+# first 10 (default) lines
+head < data/text/rand.txt
+# first 5 lines
+head -5 < data/text/rand.txt
+head -n 5 < data/text/rand.txt
+# last line
+tail -1 < data/text/rand.txt
+```
+
 ### `grep`
 find lines in file(s) by regular expression
 ```bash
@@ -29,4 +54,8 @@ grep -E '^\d' data/text/rand.txt | wc -l
 ```bash
 # print out function definitons from all python files, prefixed with filename and line number
 find . -type f -name '*.py' | xargs grep -H -n -E '^\s*def '
+
+# print filenames of python modules that import sys
+# -l = print filenames of files that have matches
+find . -type f -name '*.py' | xargs grep -E -l '^import sys'
 ```

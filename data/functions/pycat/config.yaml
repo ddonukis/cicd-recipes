@@ -1,5 +1,6 @@
 name: pycat
 description: Primitive implementation of cat. Concatenate files and print on the standard output.
 runtime: py311
+unset_var:
 metadata:
   version: "0.9.0"

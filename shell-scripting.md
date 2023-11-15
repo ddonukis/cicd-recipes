@@ -14,6 +14,9 @@ find path  # find directories/files by type name pattern etc (and optionally run
 ```
 
 ## Bash arg quoting
+> [!NOTE]
+> If you're using a Mac your default shell is zsh, not bash. It is very similar but has differences, including in how it handles variable expansion. Make sure you are testing your shell scripts in the same shell the target machine is using. You can easily run bash on a Mac in your terminal. If you have a script script.sh, run it `bash script.sh`. If you want an interactive bash shell, just invoke `bash`.
+
 ```bash
 alias argprinter='python data/functions/arg_printer/main.py'
 argprinter hello $WHO

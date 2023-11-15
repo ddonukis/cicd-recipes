@@ -13,6 +13,49 @@ sudo command # run the command as a super user (elevated access permissions), wi
 find path  # find directories/files by type name pattern etc (and optionally run a command on the results)
 ```
 
+## Bash arg quoting
+```bash
+alias argprinter='python data/functions/arg_printer/main.py'
+argprinter hello $WHO
+```
+```
+Recieved args: ['hello', 'cognite']
+```
+```bash
+argprinter "hello $WHO"
+```
+```
+Recieved args: ['hello cognite']
+```
+```bash
+argprinter 'hello $WHO'
+```
+```
+Recieved args: ['hello $WHO']
+```
+You should always use double qoutes around variables:
+```bash
+alias ap='python data/functions/arg_printer/main.py'
+ap a
+```
+```
+Recieved args: ['a']
+```
+```bash
+myvar='a b c'
+ap $myvar
+```
+```
+Recieved args: ['a', 'b', 'c']
+```
+```bash
+ap "$myvar"
+```
+> ```
+> Recieved args: ['a b c']
+> ```
+
+
 ## Text file processing
 ### `wc`
 Count words, lines, characters.

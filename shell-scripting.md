@@ -11,6 +11,7 @@ mv source destination # move (rename) file(s)
 man command  # bring up manual entry for command (press Q to exit)
 sudo command # run the command as a super user (elevated access permissions), will prompt for password
 find path  # find directories/files by type name pattern etc (and optionally run a command on the results)
+alias name=command  # create a shortcut for a command
 ```
 
 ## Bash arg quoting

@@ -17,42 +17,40 @@ find path  # find directories/files by type name pattern etc (and optionally run
 > [!NOTE]
 > If you're using a Mac your default shell is zsh, not bash. It is very similar but has differences, including in how it handles variable expansion. Make sure you are testing your shell scripts in the same shell the target machine is using. You can easily run bash on a Mac in your terminal. If you have a script script.sh, run it `bash script.sh`. If you want an interactive bash shell, just invoke `bash`.
 
+Without quotes each word is passed as a separate argument to the command.
 ```bash
 alias argprinter='python data/functions/arg_printer/main.py'
+WHO=cognite
 argprinter hello $WHO
 ```
-```
-Recieved args: ['hello', 'cognite']
-```
+> ```
+> Recieved args: ['hello', 'cognite']
+> ```
+Double quotes allow variable expansion.
 ```bash
 argprinter "hello $WHO"
 ```
-```
-Recieved args: ['hello cognite']
-```
+> ```
+> Recieved args: ['hello cognite']
+> ```
+Single quotes pass the string literally.
 ```bash
 argprinter 'hello $WHO'
 ```
-```
-Recieved args: ['hello $WHO']
-```
-You should always use double qoutes around variables:
-```bash
-alias ap='python data/functions/arg_printer/main.py'
-ap a
-```
-```
-Recieved args: ['a']
-```
+> ```
+> Recieved args: ['hello $WHO']
+> ```
+You should always use double qoutes around variables. If you don't the variable may expand into sevaral arguments if there are whitespace characters in it:
 ```bash
 myvar='a b c'
-ap $myvar
+argprinter $myvar
 ```
-```
-Recieved args: ['a', 'b', 'c']
-```
+> ```
+> Recieved args: ['a', 'b', 'c']
+> ```
+If you use double quotes it's not longer an issue.
 ```bash
-ap "$myvar"
+argprinter "$myvar"
 ```
 > ```
 > Recieved args: ['a b c']

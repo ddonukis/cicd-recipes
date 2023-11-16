@@ -11,6 +11,7 @@ mv source destination # move (rename) file(s)
 man command  # bring up manual entry for command (press Q to exit)
 sudo command # run the command as a super user (elevated access permissions), will prompt for password
 find path  # find directories/files by type name pattern etc (and optionally run a command on the results)
+date  # return (or set) date with a format
 alias name=command  # create a shortcut for a command
 ```
 
@@ -103,4 +104,8 @@ find . -type f -name '*.py' | xargs grep -H -n -E '^\s*def '
 # print filenames of python modules that import sys
 # -l = print filenames of files that have matches
 find . -type f -name '*.py' | xargs grep -E -l '^import sys'
+```
+if you need a date use `date` and provide a format after `+`. Format specifiers are almost the same as in python datetime lib.
+```bash
+date -u '+%Y-%m-%d %H:%M:%S %Z'
 ```

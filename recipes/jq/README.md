@@ -22,3 +22,9 @@ jq module is automatically loaded when you run jq.
 ```bash
 printf '[{"name": "A"}, {"name": "A"}, {"name": "B"}]' | jq 'count_by("name")'
 ```
+
+
+## Check if value is in a set of values
+```bash
+jq 'map(select("<\(.v)>" | inside("<Ann>,<Rob>")))' < data/json/arr_contains.json
+```

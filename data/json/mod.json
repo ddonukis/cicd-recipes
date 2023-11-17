@@ -1,0 +1,7 @@
+[
+    {"type": "py", "xid": "function_1"},
+    {"type": "json", "xid": "data_01"},
+    {"type": "py", "xid": "function_2"},
+    {"type": "json", "xid": "data_02"},
+    {"type": "md", "xid": "README"}
+]

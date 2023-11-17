@@ -28,3 +28,14 @@ printf '[{"name": "A"}, {"name": "A"}, {"name": "B"}]' | jq 'count_by("name")'
 ```bash
 jq 'map(select("<\(.v)>" | inside("<Ann>,<Rob>")))' < data/json/arr_contains.json
 ```
+
+If you need to pass the filter set as a var:
+
+```bash
+VALS=$(print '["Ann","Rob"]')
+jq 'map(
+      select(
+        "<\(.v)>"
+        | inside($vals | map("<\(.)>") | join(","))
+      )
+    )' --argjson vals "$VALS" < data/json/arr_contains.json
